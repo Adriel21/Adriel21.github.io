@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Oswald:wght@600;700&display=swap'); /*Sempre que há um import, ele vem na primeira linha*/
+
+/*Para texto corrido: font-family: "merriweather", serif;
+Título: font-family: "Oswald*/
+
+
+
+
+
+*,*::after, *::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px!important; /*!important pode ser usado para fazer uma regra prevalecer, ainda que seja menos específica*/
+    /*Em caso de duas tags, a última prevalece, por isso a necessidade do important*/
+    /* --fontbase: 18px;    /*Declaração de variável*/
+    /* font-size: var(--fontbase);      recuperação de variável */
+    scroll-behavior: smooth;  
+    scroll-padding-top: 120px; /*incluir em navegação de uma página só*/
+} 
+
+body {
+   margin: 0;
+   padding: 0;
+   /* font-family: ; */
+   font-family: 'Merriweather Sans', sans-serif;
+}
+
+img, iframe, video {
+    max-width: 100%;
+}
+
+h1 {
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+}
+
+header {
+    background-color: #fff;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    padding-bottom: .4rem;
+    /* display:flex; */
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+nav {
+    width: 100%;
+}
+nav ul {
+    list-style: none;
+    margin: 0;   /*margin e padding foram zerados porque a lista possui naturalmente um recuo. E, por mais que em body já haja margin e padding 0, essas propriedades não geram herança. Só é aplicado em todos quando inserimos as propriedades em um seletor que signifique tudo, como **/
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+ }
+
+/* html {
+    font-size: 20px;    
+} */
+
+nav a {
+    text-decoration: none;
+    color: #333; /*a apple utiliza no máximo um tom de cinza escuto e o line height para ampliar o respiro. para dar um ar d sofisticação*/
+    font-family: 'Oswald', sans-serif;
+    font-weight: bolder;    /*nem todas famílias tipográficas suportam alterações*/ /*grossura da tipografia - negrio*/
+    padding: .5rem .6rem; /*aumenta a área de clique*/
+    transition: all .8s; /*.8 = 0,8*/ 
+    
+    }
+
+nav a:hover {
+    background-color: black;
+    color: rgb(255, 238, 60)
+}
+
+main, section {   /*duas tags para alterar o que tem de comum no main e sections*/
+    height: 73vh;
+    display: flex; /*está alinhando a div interna ao main e cada section, não o conteúdo*/
+    align-items: center;  /*alinhamento vertical*/
+    margin: 0;
+}
+    .conteudo {
+        width: 90%; /*mesma coisa que 90%*/
+        margin: auto;
+        max-width: 800px; /*limitador, o conteúdo terá 90% até o máximo de 800px*/
+
+    }
+    .conteudo h1{
+        text-transform: uppercase; /*altera a configuração do texto, maíusculo, minúsculo e etc, de forma automática*/
+        font-family: 'oswald', sans-serif;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .conteudo p {
+        line-height: 2rem; /*aumento do espaço entre as linhas, distância de uma linha para outra*/
+    }
+
+        .cta {
+            font-family: 'oswald' sans-serif;
+            text-decoration: none;
+            font-size: .8rem;
+            font-weight: 600;
+            background-color: rgb(255, 238, 60);
+            padding: 1.15rem 1.8rem 1.15rem 1.8rem;
+            line-height: 5.5rem;
+            color: black;
+            letter-spacing: 3px; /*propriedade para para contralar o espaço entre as letras (Caracteres) entre as letras*/
+            text-transform: uppercase;
+        }
+            .cta::before { /*pseudo-classe aceito em qualquer lugar. Acrescenta conteúdo ou propriedade dentro do html e css*/ 
+                content: "+";
+                margin-right: 0.8rem;
+
+            }
+
+        .verde-agua {
+            background-color: #26ccca;
+            color: #fff;
+        }
+
+
+
+#produto{
+background-image: url(imagens/h13-background-img-1.jpg);
+background-size: cover; /*diminui o tamanho da imagem do background*/
+background-position-x: center; /*reposicionou a imagem do background*/
+}
+
+#ux {
+   background-image: url(imagens/h13-background-img-2.jpg);
+   color: white;
+}
+
+#motion {
+    background-image: url(imagens/h13-background-img-3.jpg);
+    background-size: cover;
+    background-position-x: center;
+}
+
+#brand {
+    background-image: url(imagens/h13-background-img-4.jpg);
+    color: #fff;
+}
+
+    .texto{
+        color: #b8b8b8;
+    }
+
+#print {
+    background-image: url(imagens/h13-background-img-5.jpg);
+    color: #fff;
+    background-size: cover;
+    background-position-x: center;
+}
+
+/*para telas acima de 700px*/
+
+@media screen and (min-width: 700px) {
+    header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 10vh;
+    }
+    
+    .logo {
+        width: 25%;
+    }
+
+    header nav {
+        width: 70%;
+        max-width: 800px;   /*Padrão para afirmar que não pode ser ultrapassado de 800px*/
+    }
+
+    #produto, #motion, #print {
+        background-attachment: fixed; /*fixa a imagem de fundo css*/
+    }
+
+    .conteudo {
+        width: 50%;
+        max-width: 800px;
+        margin: 0;
+        margin-left: 4rem;
+    }
+
+    .conteudo h1 {         /*Quando mantemos uma espeficidade, devemos mantê-la em todo o código*/
+        font-size: 5rem;
+        margin: -0.6rem;
+    }
+
+    a {
+       font-size: 1.1rem;
+       padding: 0.7rem 1.0rem; 
+    }
+}
